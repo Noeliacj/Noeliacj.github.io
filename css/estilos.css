@@ -24,6 +24,10 @@ body {
 	gap: 20px;
 }
 
+.icon-link {
+	margin-right: 20px;
+}
+
 .enlaces {
 	position: sticky;
 	top: 20px;

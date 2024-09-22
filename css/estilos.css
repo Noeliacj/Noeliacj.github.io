@@ -79,6 +79,27 @@ header {
     background-color: #fff;
     padding: 20px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center; /
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.content p {
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.content h1 {
+    margin-bottom: 20px;
 }
 
 main img {

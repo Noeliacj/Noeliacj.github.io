@@ -9,7 +9,7 @@ html {
 }
 
 body {
-	background: #f2f2f2;
+	background: #F5F5DC;
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -89,7 +89,6 @@ body {
 	width: 26px;
 	height: 26px;
 }
-
 .menu ul {
     display: flex;
     padding: 0;

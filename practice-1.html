@@ -52,21 +52,27 @@
                 </p>
 
                 <h2>State diagram:</h2>
-
                 <p>
-                    Text...
+                    As for the state machine, I have implemented three states: "forward", "backward" and "turn". The program starts in the forward state until it detects a collision, then it goes to the backward state and after 0.5s it changes to the turn state. After making the turn, it returns to the initial state, forward, to repeat the sequence.
                 </p>
+                <img src="img/diagrama.png" alt="">
 
                 <h2>Practice difficulties:</h2>
 
                 <p>
-                    Text...
+                    Some of the problems experienced in carrying out the practice are:
                 </p>
-
-                <h2>Operation video:</h2>
+                <ul>
+                    <li>Start with spiral.</li>
+                    <li>Use of laser and angles to rotate.</li>
+                </ul>
 
                 <p>
-                    Text...
+                    At the beginning of the practice I tried to implement a spiral as the first state. However, I didn't feel it was essential to the program and I could do a similar process without using the spiral, such as starting directly at an initial forward state. In the end I decided to remove the spiral idea because it proposed increasing the linear speed until the robot crashed, which in my opinion was too high a speed to control the robot.
+                </p>
+
+                <p>
+                    The second main problem I had was using the laser with the distance and angle of the obstacle. I managed to get the program to work with it, but since it could also be done by measuring the time at some points in the program and acting based on that, I opted for this option, which was simpler.
                 </p>
             </main>
         </div>

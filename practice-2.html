@@ -41,21 +41,29 @@
 
                 <h2>Race Exploration:</h2>
 
-                <img src="img/foto-p2.jpg" alt="">
-                <div class="video-container">
-                    <video src="videos/video-p2.webm" controls width="600"></video>
-                </div>
+                <p>Warning: The videos of this practice are link to drive, they exceed the limit of size.</p>
+                <p>Click on the images to see the videos.</p>
+
+                <a href="https://drive.google.com/file/d/1RPllikhnV-NZRPFrX5FEpGAnQDm_4HIp/view?usp=sharing" title="Simple Circuit" class="icon-link">
+                    <img alt="Simple Circuit" src="img/simple.jpg" width="200" height="200" />
+                </a>
 
                 <p>
-                    This photo and video correspond to about __ minutes of execution. The video is at normal speed.
+                    This video correspond to about 3 minutes of execution. The video is at normal speed, in the Simple circuit.
                 </p>
 
+                <a href="https://drive.google.com/file/d/1RQ_HkEoef2ah7ZPQyKvRu_20T7gC4PzY/view?usp=sharing" title="Montmelo Circuit" class="icon-link">
+                    <img alt="Montmelo Circuit" src="img/montmelo.jpg" width="200" height="200" />
+                </a>
+
                 <p>
-                    The main problem with this algorithm is that
+                    This second video correspond to about 6 minutes of execution. The video is at normal speed, in the Montmelo circuit.
                 </p>
 
                 <h2>PD Controller:</h2>
+
                 <p>
+                    I have implemented a PD, without an integral part, and I have adjusted the values ​​so that it would solve the error and follow the line without over-oscillating too much.
                 </p> 
 
                 <h2>Tests carried out:</h2>
@@ -68,10 +76,10 @@
                     <li><strong>Circuit Montmelo</strong></li>
                     <li><strong>Circuit Montreal</strong></li>
                     <li><strong>Circuit Nürburgring</strong></li>
-                    <li><strong>Ackerman Versions</strong></li>
                 </ul>
 
                 <p>
+                    In all these circuits (without the Ackerman version) the code works, in some of them sometimes gets lost and takes longer to reach the goal, but in all of them it ends up achieving the objective.
                 </p>
 
                 <h2>Practice difficulties:</h2>
@@ -80,14 +88,16 @@
                     Some of the problems experienced in carrying out the practice are:
                 </p>
                 <ul>
-                    <li><strong>-</strong></li>
-                    <li><strong>-</strong></li>
+                    <li><strong>Values for PD Controller.</strong></li>
+                    <li><strong>Image perception of the line (HSV).</strong></li>
                 </ul>
 
                 <p>
+                    It has been quite difficult in terms of time to find values ​​for the PD that were good in all the circuits and that did not overoscillate and be continuous.
                 </p>
 
                 <p>
+                    As for perception, I started trying to analyze the image with RGB but I couldn't get it to work well. In the end, I have implemented perception with HSV, managing to analyze the image well and obtaining the center of the image (with the X coordinate to later calculate the error).
                 </p>
             </main>
         </div>

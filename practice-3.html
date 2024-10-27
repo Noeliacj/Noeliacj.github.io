@@ -39,53 +39,66 @@
 
                 <h1>Practice 3 - Obstacle Avoidance</h1>
 
-                <h2>Exploration: (Videos)</h2>
+                <h2>Exploration: (Video)</h2>
 
-                <a href="" title="" class="">
-                    <img alt="" src="" width="200" height="200" />
-                </a>
+                <div class="video-container">
+                    <video src="videos/video-p3.webm" controls width="600"></video>
+                </div>
 
                 <p>
+                    Video of the algorithm in operation, at normal speed, lasts approximately two minutes.
                 </p>
 
-                <a href="" title="" class="">
-                    <img alt="" src="" width="200" height="200" />
-                </a>
+                <h2>Virtual Force Field (VFF): </h2>
 
-                <p>
-                </p>
-
-
-                <p>
-                </p> 
-
-                <h2>Tests carried out:</h2>
-
-                <p>
-                </p>
                 <ul>
-                    <li><strong></strong></li>
-                    <li><strong></strong></li>
-                    <li><strong></strong></li>
-                    <li><strong></strong></li>
+                    <li><strong>Attractive Force</strong></li>
+                    <li><strong>Repulsive Force</strong></li>
+                    <li><strong>Total Force</strong></li>
                 </ul>
 
                 <p>
+                    Attractive force pulls the car toward the next waypoint, acting as a "guide" along the path. The closer the car gets, the weaker the force should become, allowing for smooth navigation.
+                </p>
+
+                <p>
+                    Repulsive force prevents the car from getting too close to obstacles. The closer the car is to an obstacle, the stronger this repulsive force should be, steering the car away and encouraging it to navigate around obstacles.
+                </p>
+
+                <p>
+                    Total force is the resultant vector formed by combining the attractive and repulsive forces. The car’s velocity and direction derive from this vector, meaning it needs to be balanced carefully to prevent erratic movement.
+                </p>       
+                
+                <h2>Set parameters (Alpha, Beta):</h2>
+                    
+                <ul>
+                    <li><strong>Alpha (α): </strong>This parameter scales the attractive force toward each waypoint.</li>
+                    <li><strong>Beta (β): </strong>This parameter scales the repulsive force to keep the car away from obstacles.</li>
+                </ul>
+                <p>
+                    For the alpha value I have set a high value so that it is able to go in the direction of the target without going off the path trying to avoid an obstacle.
+                </p>
+
+                <p>
+                    For the beta value I have established a smaller value, since if it were higher than alpha the car would never tend towards the target. But it still has to be a good enough value so that you don't neglect it and end up crashing the car.
                 </p>
 
                 <h2>Practice difficulties:</h2>
 
                 <p>
+                    Some of the problems experienced in carrying out the practice are: 
                 </p>
                 <ul>
-                    <li><strong>-...</strong></li>
-                    <li><strong>-...</strong></li>
+                    <li><strong>-Balancing Attractive and Repulsive Forces</strong></li>
+                    <li><strong>Calculating forces</strong></li>
                 </ul>
 
                 <p>
+                    One of the most significant challenges was achieving a smooth balance between the attractive force (directing the car toward the waypoint) and the repulsive force (steering it away from obstacles). The attractive and repulsive forces need to work together seamlessly, but tuning them to avoid conflicts is complex.
                 </p>
 
                 <p>
+                    Another key challenge was calculating the forces themselves accurately and efficiently. This involves determining both the magnitude and direction of each force (attractive and repulsive), a process that required thorough testing and refinement.
                 </p>
             </main>
         </div>

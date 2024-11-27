@@ -36,7 +36,7 @@
             <main>
                 <img src="img/practice-4.jpg" alt="">
 
-                <h1>Practice 4 - </h1>
+                <h1>Practice 4 - Global Navigation</h1>
 
                 <h2>Global Navigation: (Video)</h2>
 
@@ -47,13 +47,17 @@
                 <p>
                     Video of the algorithm in operation, at normal speed, lasts approximately one minute and a half.
                 </p>
+                <p>
+                    In this video, a single target is assigned to the taxi and we see how, after spending some time creating the cost map, it is able to follow that map to the objective.
+                </p>
+
 
                 <div class="video-container">
                     <video src="videos/video-p4-2target.webm" controls width="600"></video>
                 </div>
 
                 <p>
-
+                    In this second video, different targets are assigned. First, as in the previous video, an initial one is assigned, it creates the cost map, navigates to the objective and waits for the next target, once assigned, it creates another cost map for the current target and reaches the objective and so on constantly.
                 </p>
 
                 <h2>Practice difficulties:</h2>
@@ -62,9 +66,33 @@
                     Some of the problems experienced in carrying out the practice are: 
                 </p>
                 <ul>
-                    <li><strong></strong></li>
-                    <li><strong></strong></li>
+                    <li><strong>Locking in tight areas</strong></li>
+                    <li><strong>Selection of several targets</strong></li>
+                    <li><strong>Angle calculation.</strong></li>
                 </ul>
+
+                <p>
+                    In scenarios where the robot must pass through narrow areas, such as areas near multiple obstacles, the algorithm initially had difficulty finding an optimal route. The robot tended to move in loops, continually recalculating suboptimal routes without moving toward the goal. The problem was because the obstacle proximity penalty was not strong enough to discourage movement close to these areas, so the solution was to increase the penalty value in the cells adjacent to the obstacles.
+                </p>
+
+                <p>
+                    This second problem is being able to choose a different target once the previously proposed objective has been reached. For this, thanks to the prev_target variable we can detect when the target is different from the one marked previously, update the new target and navigate to it.
+                </p>
+
+                <p>
+                    A big problem has been calculating the angle that the robot had to turn to reach the target. To try to solve this problem we have normalized the angles we use to guarantee that it is always between -π and π, to facilitate calculations. Furthermore, thanks to the atan2 formula we can carry out these calculations.
+                </p>
+
+                <h2>Tests carried out:</h2>
+
+                <p>
+                    The tests that I have been carrying out during the practice are:
+                </p>
+
+                <p>
+                    In this practice I have carried out several tests to check how it works, I have used quite a few places on the map as targets and observed whether it is able to reach them or not. From placing the target on the same line as the car, to placing it in practically a corner of the map passing through narrower streets. He is capable of reaching the target sometimes sticking too close to the wall due to having to make a turn, but without actually touching it.
+                </p>    
+
             </main>
         </div>
     </div>

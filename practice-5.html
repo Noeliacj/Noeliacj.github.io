@@ -41,30 +41,76 @@
 
                 <h2>Montecarlo Localization: (Video)</h2>
 
+                <p>
+                    This first video corresponds to the algorithm in operation with a constant linear and angular speed to test the correct functioning of the algorithm.
+                </p>
+
                 <div class="video-container">
-                    <video src="" controls width="600"></video>
+                    <video src="videos/video-p5-circulo.webm" controls width="600"></video>
                 </div>
 
                 <p>
-
+                    These next two videos are of the algorithm implemented with practice 1:
                 </p>
 
+                <div class="video-container">
+                    <video src="videos/video-p5-1.webm" controls width="600"></video>
+                </div>
+
+                <div class="video-container">
+                    <video src="videos/video-p5-2.webm" controls width="600"></video>
+                </div>
+                
                 <h2>Practice difficulties:</h2>
 
-                <ul>
-                    <li><strong></strong></li>
-                    <li><strong></strong></li>
-                    <li><strong></strong></li>
-                </ul>
-
                 <p>
-
+                    Throughout the implementation of the Monte Carlo Localization algorithm in this practice, several challenges arose that required specific adjustments to ensure proper functionality. Below are some of the key difficulties encountered:
+                </p>
+                
+                <ul>
+                    <li><strong>Processing speed:</strong> Intensive calculations for ray tracing and particle updates caused delays, especially with large particle counts.</li>
+                    <li><strong>Parameter tuning:</strong> Adjusting the number of particles, laser beams, and noise levels was critical for balancing accuracy and efficiency.</li>
+                    <li><strong>Weight stability:</strong> Particle weights often normalized to zero, requiring frequent particle reinitialization.</li>
+                    <li><strong>Convergence issues:</strong> Poor initial particle distribution or minimal movement of particles delayed localization.</li>
+                    <li><strong>Raytracing precision:</strong> Skipping steps to optimize performance reduced the accuracy of virtual laser measurements.</li>
+                </ul>
+                
+                <p>
+                    These challenges highlight the importance of optimizing computational processes and carefully tuning parameters in robotics algorithms to ensure real-time performance and reliability.
                 </p>
 
                 <h2>Tests carried out:</h2>  
+
+                <p>
+                    Throughout the implementation and development of the Monte Carlo Localization algorithm, several tests were carried out to evaluate its performance under different conditions. Below are some of the key tests conducted during the practice:
+                </p>
                 
                 <p>
-
+                    The first step in testing the algorithm was <strong>initializing the particles randomly</strong> across the map. This process is crucial as the initial distribution of particles determines the starting point for the localization process. Initially, particles were randomly generated in a region around the robot's true position, but with some variation. By observing how the particles dispersed around the robot, we could see how well the algorithm approximated the robot’s location.
+                </p>
+                
+                <p>
+                    During testing, I experimented with different values for the number of particles, starting with a small number and gradually increasing the particle count. For example, when <strong>N_PARTICLES</strong> was set to 50, the algorithm would often struggle to converge accurately on the true position. The fewer particles there are, the more likely it is that the robot’s localization estimate will be imprecise. On the other hand, with a larger number of particles, such as 300, the algorithm performed better at estimating the robot’s position, though at the cost of more computational time.
+                </p>
+                
+                <p>
+                    To further explore the effect of the number of particles on performance, I tested the algorithm with both a low and high number of particles, specifically <strong>1 particle</strong> and <strong>several hundred particles</strong>. With only 1 particle, the robot's position could often diverge, as the particle might be too far from the actual position. In contrast, when the number of particles increased, the algorithm's estimate of the robot’s position became more reliable, as there was a wider distribution of particles to choose from. However, even with many particles, the algorithm occasionally struggled in areas with significant noise or obstacles, requiring further adjustments to the weight calculation and resampling methods.
+                </p>
+                
+                <p>
+                    Another crucial aspect of the testing was observing how the <strong>weights</strong> of the particles were established during the process. The weight of each particle is a measure of how likely it is to represent the robot's actual position. Initially, when particles were randomly distributed, the weights were all quite low because they were far from the true position. As the Monte Carlo Localization algorithm iterated and particles were propagated based on odometry data and laser scans, the weights started to reflect the particles that were closer to the robot’s real position. I was able to observe how the particles with higher weights clustered around the true position of the robot, while the particles with low weights were eliminated during the resampling process.
+                </p>
+                
+                <p>
+                    To test the accuracy and robustness of the localization algorithm, I ran several iterations of the Monte Carlo Localization with various parameters. For instance, the number of particles was varied, and the system was tested with both simple and complex map environments, containing obstacles like walls and narrow passages. These tests helped to highlight potential areas of improvement, such as adjusting the weight calculation when particles were near obstacles or in open spaces. In some cases, the algorithm would struggle to converge properly if the laser scan data had inconsistencies, such as gaps or noisy readings.
+                </p>
+                
+                <p>
+                    Lastly, the algorithm was tested using the <strong>same structure from Practice 1</strong> where the robot moved forward, backward, and turned based on bumper sensors. This setup provided a good environment to test how well the Monte Carlo Localization algorithm could handle continuous motion and real-time updates. The combination of movement and periodic updates to particle positions allowed the system to continuously refine the robot's estimated pose, making the algorithm suitable for real-time localization in dynamic environments.
+                </p>
+                
+                <p>
+                    Through these various tests, it became clear that the algorithm could successfully localize the robot in many situations. However, it also highlighted areas where improvements could be made, such as refining the resampling process, improving weight calculations in complex environments, and addressing cases where the laser scan data might not be perfect.
                 </p>
 
             </main>

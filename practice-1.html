@@ -24,10 +24,6 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="practice-1.html">Practice 1</a></li>
-                        <li><a href="practice-2.html">Practice 2</a></li>
-                        <li><a href="practice-3.html">Practice 3</a></li>
-                        <li><a href="practice-4.html">Practice 4</a></li>
-                        <li><a href="practice-5.html">Practice 5</a></li>
                     </ul>
                 </nav>
             </div>
@@ -39,64 +35,6 @@
 
                 <h1>Practice 1 - Vacuum Cleaner</h1>
 
-                <h2>Environment exploration:</h2>
-
-                <img src="img/exploracion.jpg" alt="">
-
-                <p>
-                    This first photo is the result of about twenty minutes of executing my code. It is capable of reaching all areas of the house and partially cleaning them.
-                </p>
-
-                <img src="img/foto-video.jpg" alt="">
-                <div class="video-container">
-                    <video src="videos/video-foto.webm" controls width="600"></video>
-                </div>
-
-                <p>
-                    This photo and video correspond to about 12-13 minutes of execution. The video is at x4 speed.
-                </p>
-
-                <p>
-                    The main problem with this algorithm is that by depending on random angles it can take longer to clean correctly or enter a specific area of ​​the house, such as the room upstairs on the left. However, by giving it the necessary time, it is capable of achieving its objectives.
-                </p>
-
-                <h2>Tests carried out:</h2>
-
-                <p>
-                    The two main tests that I have been carrying out during the practice are:
-                </p>
-                <ul>
-                    <li><strong>Small closed room.</strong></li>
-                    <li><strong>By default, where the robot appears.</strong></li>
-                </ul>
-
-                <p>
-                    In both tests the robot is able to cover a large part of the area of the house and does not get locked in any corner or place. In the small room, due to the angles, it sometimes takes him a while to get out but he is always able to leave the room and continue with his task throughout the rest of the house.
-                </p>
-
-                <h2>State diagram:</h2>
-                <p>
-                    As for the state machine, I have implemented three states:  <strong>forward</strong>, <strong>backward</strong> and <strong>turn</strong>. The program starts in the forward state until it detects a collision, then it goes to the backward state and after 0.5s it changes to the turn state. After making the turn, it returns to the initial state, forward, to repeat the sequence.
-                </p>
-                <img src="img/diagrama.jpg" alt="">
-
-                <h2>Practice difficulties:</h2>
-
-                <p>
-                    Some of the problems experienced in carrying out the practice are:
-                </p>
-                <ul>
-                    <li><strong>Start with spiral.</strong></li>
-                    <li><strong>Use of laser and angles to rotate.</strong></li>
-                </ul>
-
-                <p>
-                    At the beginning of the practice I tried to implement a spiral as the first state. However, I didn't feel it was essential to the program and I could do a similar process without using the spiral, such as starting directly at an initial forward state. In the end I decided to remove the spiral idea because it proposed increasing the linear speed until the robot crashed, which in my opinion was too high a speed to control the robot.
-                </p>
-
-                <p>
-                    The second main problem I had was using the laser with the distance and angle of the obstacle. I managed to get the program to work with it, but since it could also be done by measuring the time at some points in the program and acting based on that, I opted for this option, which was simpler.
-                </p>
             </main>
         </div>
     </div>

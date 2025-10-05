@@ -35,6 +35,55 @@
 
                 <h1>Practice 1 - Vacuum Cleaner</h1>
 
+                <h2>Tests carried out:</h2>
+
+                <p>
+                    The two main tests that I have been carrying out during the practice are:
+                </p>
+                <ul>
+                    <li><strong>Small closed room.</strong></li>
+                    <li><strong>By default, where the robot appears.</strong></li>
+                </ul>
+
+                <p>
+                    In both tests the robot is able to cover a large part of the area of the house and does not get locked in any corner or place. In the small room, due to the angles, it sometimes takes him a while to get out but he is always able to leave the room and continue with his task throughout the rest of the house.
+                </p>
+
+                <h2>State diagram:</h2>
+
+                <p>
+                    As for the state machine, I have implemented four states:  <strong>forward</strong>, <strong>spiral</strong>, <strong>backward</strong> and <strong>turn</strong>. The program starts in the forward state. From this state, it can transition to reverse or spiral. If it detects enough space, it will spiral until it detects a collision. It then transitions to the reverse state and, after 0.5 seconds, changes to the spin state. After the spin state, it returns to the initial forward state to repeat the sequence. If it is in the forward state and there isn't enough space to spiral, it will directly transition to reverse upon collision.
+                </p>
+                <img src="img/d_spiral.png" alt="">
+
+                <h2>Optimal spin</h2>
+
+                <p>To choose the most optimal rotation method and clean the largest possible surface, I have tried several techniques:</p>
+
+                <p>On the one hand, by making it always spin to the right and spin a random value. This method isn't very effective, as it would get stuck in areas of the house where there are obstacles very close together.</p>
+                <div class="video-container">
+                    <video src="video/giro_derecha.webm" controls width="600"></video>
+                </div>
+
+                <p>Another possible solution is to turn right or left depending on the area where the robot collided. The time it turns to that side is randomly selected. This solution slightly improves the algorithm's efficiency, as even if it turns for a longer or shorter time, it always turns to the correct side to avoid the obstacle it collided with.</p>
+                <div class="video-container">
+                    <video src="video/giro_ambos.webm" controls width="600"></video>
+                </div>
+
+                <h2>Coverage Algorithm - Spiral</h2>
+
+                <p>Once we've studied how best to turn the robot to avoid obstacles, we can improve the algorithm by adding spirals. When the laser detects obstacles at a distance, instead of continuing straight ahead, it will sweep in a spiral to cover more floor space.</p>
+                <div class="video-container"></div>
+                    <video src="video/spiral.webm" controls width="600"></video>
+                </div>
+
+                <h2>Results and conclusions</h2>
+
+                <p></p>
+                <div class="video-container">
+                    <video src="video/result.webm" controls width="600"></video>
+                </div>
+
             </main>
         </div>
     </div>

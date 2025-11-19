@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/estilos.css">
+    
+    <title>Website Mobile Robotics</title>
+
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="header-container">
+                <h3 class="logo">Website for Mobile Robotics (By Noelia Casado)</h3>
+
+                <nav class="menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="practice-1.html">Practice 1</a></li>
+                        <li><a href="practice-2.html">Practice 2</a></li>
+                        <li><a href="practice-3.html">Practice 3</a></li>
+                        <li><a href="practice-4.html">Practice 4</a></li>
+                    </ul>
+                </nav>26
+            </div>
+        </header>
+
+        <div class="content">
+            <main>
+                <img src="img/practice-4.jpg" alt="">
+
+                <h1>Practice 4 - Global Navigation</h1>
+
+                <h2>Global Navigation: (Video)</h2>
+
+                <div class="video-container">
+                    <video src="videos/video-p4-1target.webm" controls width="600"></video>
+                </div>
+
+                <p>
+                    In this video, a single target is assigned to the taxi and we see how, after spending some time creating the cost map, it is able to follow that map to the objective.
+                </p>
+
+
+                <div class="video-container">
+                    <video src="videos/video-p4-2target.webm" controls width="600"></video>
+                </div>
+
+                <p>
+                    In this second video, different targets are assigned. First, as in the previous video, an initial one is assigned, it creates the cost map, navigates to the objective and waits for the next target, once assigned, it creates another cost map for the current target and reaches the objective and so on constantly.
+                </p>
+
+                <h2>Practice difficulties:</h2>
+
+                <p>
+                    Some of the problems experienced in carrying out the practice are: 
+                </p>
+                <ul>
+                    <li><strong>Locking in tight areas</strong></li>
+                    <li><strong>Selection of several targets</strong></li>
+                    <li><strong>Angle calculation.</strong></li>
+                </ul>
+
+                <p>
+                    In scenarios where the robot must pass through narrow areas, such as areas near multiple obstacles, the algorithm initially had difficulty finding an optimal route. The robot tended to move in loops, continually recalculating suboptimal routes without moving toward the goal. The problem was because the obstacle proximity penalty was not strong enough to discourage movement close to these areas, so the solution was to increase the penalty value in the cells adjacent to the obstacles.
+                </p>
+
+                <p>
+                    This second problem is being able to choose a different target once the previously proposed objective has been reached. For this, thanks to the prev_target variable we can detect when the target is different from the one marked previously, update the new target and navigate to it.
+                </p>
+
+                <p>
+                    A big problem has been calculating the angle that the robot had to turn to reach the target. To try to solve this problem we have normalized the angles we use to guarantee that it is always between -π and π, to facilitate calculations. Furthermore, thanks to the atan2 formula we can carry out these calculations.
+                </p>
+
+                <h2>Tests carried out:</h2>
+
+                <p>
+                    The tests that I have been carrying out during the practice are:
+                </p>
+
+                <p>
+                    In this practice I have carried out several tests to check how it works, I have used quite a few places on the map as targets and observed whether it is able to reach them or not. From placing the target on the same line as the car, to placing it in practically a corner of the map passing through narrower streets. He is capable of reaching the target sometimes sticking too close to the wall due to having to make a turn, but without actually touching it.
+                </p>    
+
+            </main>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="Social Networks">
+            <h3>Social Networks:</h3>
+
+            <a href="https://github.com/Noeliacj" title="Github Profile" class="icon-link">
+                <img alt="Github" src="img/github.jpg" width="120" height="75" />
+            </a>
+
+            <a href="mailto:n.casado.2022@alumnos.urjc.es" title="Outlook Contact" class="icon-link">
+                <img alt="Outlook" src="img/outlook.jpg" width="120" height="75" />
+            </a>
+            <p>Copyright © 2025-26 Noelia Casado</p>
+        </div>
+    </footer>
+</body>
+</html>

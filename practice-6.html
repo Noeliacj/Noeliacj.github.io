@@ -40,11 +40,62 @@
 
                 <h1>Practice 6 - Marker Visual Loc</h1> 
 
-                <h2>Navigation: (Video)</h2>
+                <h2>Visual Localization with AprilTags: (Video)</h2>
+
+                <p>
+                    In this practice, the robot performs self-localization using visual beacons (AprilTags). By detecting known tags in the environment and combining this information with a preloaded map of tag positions, the robot is able to estimate its pose (x, y, yaw) in real time.
+                </p>
+
+                <div class="video-container">
+                    <video src="video/p6.webm" controls width="600"></video>
+                </div>
+
+                <p>
+                    The system alternates between visual localization and odometry-based prediction. When a tag is detected, the pose is corrected using PnP (Perspective-n-Point) and the known tag geometry. When no tag is visible, the robot relies on odometry to propagate its estimated position.
+                </p>
 
                 <h2>Practice difficulties:</h2>
 
+                <p>
+                    Some of the main challenges faced during this practice were:
+                </p>
+
+                <ul>
+                    <li><strong>Reliable detection of AprilTags under different viewing angles.</strong></li>
+                    <li><strong>Accurate pose estimation using solvePnP.</strong></li>
+                    <li><strong>Correct fusion between odometry and visual measurements.</strong></li>
+                    <li><strong>Maintaining stable orientation estimation (yaw normalization).</strong></li>
+                </ul>
+
+                <p>
+                    One of the main difficulties was ensuring a stable pose estimation when using AprilTags. Depending on the viewing angle and distance, the detection quality varied, which affected the accuracy of the PnP solution. To mitigate this, the largest detected tag (based on contour area) was selected to improve robustness.
+                </p>
+
+                <p>
+                    Another key challenge was combining visual localization with odometry. When a tag is detected, the system directly corrects the robot pose using camera-based estimation. Otherwise, the pose is propagated using incremental odometry updates, which required careful transformation between coordinate frames.
+                </p>
+
+                <p>
+                    Finally, maintaining a consistent yaw value was essential. The angle normalization using atan2 ensured that the orientation remained within the range [-π, π], preventing discontinuities in the estimated trajectory.
+                </p>
+
                 <h2>Tests carried out:</h2>
+
+                <p>
+                    Several tests were performed to evaluate the performance of the visual localization system.
+                </p>
+
+                <p>
+                    First, the robot was tested in scenarios where multiple AprilTags were visible. The algorithm successfully selected the most reliable tag based on its observed area, improving pose accuracy.
+                </p>
+
+                <p>
+                    Additional tests evaluated the transition between visual localization and odometry. When tags were visible, the pose was corrected accurately, while in their absence the system was still able to maintain a reasonable estimate using odometry propagation.
+                </p>
+
+                <p>
+                    Finally, the system was tested in different trajectories in the same map to verify robustness. These tests showed that the robot was able to maintain consistent localization even when tags were temporarily lost, recovering quickly once they reappeared in the camera view.
+                </p>
 
             </main>
         </div>

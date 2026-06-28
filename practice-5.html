@@ -40,11 +40,65 @@
 
                 <h1>Practice 5 - Laser Mapping</h1> 
 
-                <h2>Navigation: (Video)</h2>
+                <h2>Probabilistic Occupancy Map: (Video)</h2>
+
+                <p>
+                    In this video, the robot explores the environment while continuously building a probabilistic occupancy grid map using laser sensor data. As the robot moves, each laser scan updates the map by marking free cells along the laser beams and occupied cells where obstacles are detected. Unknown areas are progressively explored until a large part of the environment has been mapped.
+                </p>
+
+                <p>
+                    During the exploration process, the robot also performs frontier-based exploration. It evaluates different directions according to the amount of unknown space ahead and selects the most promising one while avoiding nearby obstacles detected by the laser scanner.
+                </p>
+
+                <div class="video-container">
+                    <video src="video/p5.webm" controls width="600"></video>
+                </div>
 
                 <h2>Practice difficulties:</h2>
 
+                <p>
+                    Some of the main difficulties encountered during the development of this practice were:
+                </p>
+
+                <ul> 
+                    <li><strong>Updating the probabilistic occupancy map correctly.</strong></li>
+                    <li><strong>Choosing suitable frontier directions.</strong></li>
+                    <li><strong>Avoiding collisions while exploring unknown areas.</strong></li>
+                </ul>
+
+                <p>
+                    One of the main challenges was implementing the occupancy grid using log-odds values. Each laser measurement had to update every cell crossed by the beam as free space while increasing the probability of occupancy only at the detected obstacle. It was also necessary to clamp the log-odds values to prevent numerical instability after many updates.
+                </p>
+
+                <p>
+                    Another important difficulty was selecting the next exploration direction. Instead of moving randomly, the robot evaluates several sectors around its current position and estimates how many unknown cells exist in each direction. This allows it to prioritize unexplored regions and produce a more complete map in less time.
+                </p>
+
+                <p>
+                    Finally, obstacle avoidance required careful tuning. Whenever an obstacle is detected too close to the front of the robot, it immediately stops moving forward and performs a turn towards the side with more available space. Finding suitable thresholds for obstacle detection and turning speed was essential to achieve smooth navigation without collisions.
+                </p>
+
                 <h2>Tests carried out:</h2>
+
+                <p>
+                    Several experiments were performed to verify the behaviour of both the mapping algorithm and the exploration strategy.
+                </p>
+
+                <p>
+                    The first tests focused on checking that the occupancy grid was updated correctly as the robot moved through the environment. The generated map was inspected to verify that walls appeared as occupied cells, free space was correctly identified and unexplored areas remained unknown until visited.
+                </p>
+                
+                <p>
+                    Additional tests evaluated the frontier selection algorithm. The robot was placed in different starting positions and observed while exploring the environment. In most situations, it successfully selected directions leading towards unexplored regions instead of revisiting already mapped areas.
+                </p>
+                
+                <p>
+                    These tests were also carried out in several different maps, with varying sizes and obstacle densities, in order to evaluate the robustness of the algorithm under different scenarios.
+                </p>
+                
+                <p>
+                    Finally, obstacle avoidance was tested by navigating through environments containing narrow passages and multiple nearby obstacles. After adjusting the obstacle detection threshold and turning velocity, the robot was able to avoid collisions while continuing the exploration process and progressively completing the occupancy map.
+                </p>
 
             </main>
         </div>
